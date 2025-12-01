@@ -1,0 +1,1 @@
+Hann inte riktigt med hela projektet, med lite mer tid hade jag gjort att sidan ser bättre ut. Implementerat en gräns på hur många filmer man kan se under actordetails samt en "visa mer" knapp. Skapat paginering så att man kan se top 10 filmerna men också kunna bläddra till filmerna efter. Bättre funktionalitet på sökfältet, en knapp för att rensa sökningar verkar "amatöraktigt".
