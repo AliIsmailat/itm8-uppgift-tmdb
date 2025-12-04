@@ -70,7 +70,7 @@ export default function Home() {
 
   return (
     // html layouten
-    <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-green-700">
+    <div className="min-h-screen bg-gradient-to-r from-lime-400/70 to-teal-700/70">
       <div className="p-4 max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-center text-white font-mono">
           Top 10 Movies
