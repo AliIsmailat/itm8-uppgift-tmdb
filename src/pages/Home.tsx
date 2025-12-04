@@ -1,4 +1,3 @@
-
 // importerar stuff
 import { useEffect, useState } from "react";
 import { fetchPopularMovies, searchMovies } from "../api/tmdb";
@@ -6,23 +5,18 @@ import type { Movie } from "../types/types";
 import MovieCard from "../components/MovieCard";
 import SearchBar from "../components/SearchBar";
 
-
 //funktion för home sidan
 export default function Home() {
-
   //state variabler
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
 
-
   // funktion för att ladda top 10 filmer
   const loadTopMovies = async () => {
-
     //setloading till true för att visa texten
     setLoading(true);
     try {
-
       //api anrop
       const data = await fetchPopularMovies();
       //använder setter för att visa data (plockar 0 till 10 av dem)
@@ -43,17 +37,14 @@ export default function Home() {
     loadTopMovies();
   }, []);
 
-
-
-  //funktion för att handla search, 
+  //funktion för att handla search,
   const handleSearch = async () => {
     //om sökfältet är tom, avbryt
     if (!query) return;
     //om den inte är tom, setloading till true
     setLoading(true);
     try {
-      
-    //anropar searchmovies och skickar till query som parameter
+      //anropar searchmovies och skickar till query som parameter
       const results = await searchMovies(query);
       // använder setter för att sätta movies state till (results)
       setMovies(results);
@@ -67,7 +58,7 @@ export default function Home() {
     }
   };
 
-  //handlereset funktion för en knapp, tömmer query och 
+  //handlereset funktion för en knapp, tömmer query och
   //sätter top10 movies i home
   const handleReset = () => {
     setQuery("");
@@ -79,30 +70,37 @@ export default function Home() {
 
   return (
     // html layouten
-    <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6 text-center">Top 10 Movies</h1>
+    <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-green-700">
+      <div className="p-4 max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-center text-white font-mono">
+          Top 10 Movies
+        </h1>
 
-      <div className="flex items-center gap-2 mb-4">
-        
-        <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
-        <button
-          onClick={handleSearch}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Search
-        </button>
-        <button
-          onClick={handleReset}
-          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-        >
-          Reset
-        </button>
-      </div>
+        <div className="flex items-center gap-2 mb-4">
+          <SearchBar
+            query={query}
+            setQuery={setQuery}
+            onSearch={handleSearch}
+          />
+          <button
+            onClick={handleSearch}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            Search
+          </button>
+          <button
+            onClick={handleReset}
+            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+          >
+            Reset
+          </button>
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
       </div>
     </div>
   );
