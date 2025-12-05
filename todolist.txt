@@ -1,0 +1,30 @@
+Att göra:
+
+- Skapa en navbar
+
+
+- Skapa en footer
+
+- implementera att hela vyn styrs av URL-params 
+(om det så krävs?)
+
+
+- Ändra på pilarna för när man skrollar skådespelare
+  under MovieDetails.tsx
+
+- Ändra på pilarna för när man skrollar filmer
+  under ActorDetails.tsx
+
+
+- Skapa en logga in sektion 
+(spara i local storage men ha i åtanke att du
+i framtiden behöver implementera en backend för detta)
+
+
+- Skapa en favoritfilmer-lista, liknande till to-dolist
+(spara i local storage men ha i åtanke att du
+i framtiden behöver implementera en backend för detta)
+
+
+
+

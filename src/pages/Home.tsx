@@ -70,37 +70,30 @@ export default function Home() {
 
   return (
     // html layouten
-    <div className="min-h-screen bg-gradient-to-r from-lime-400/70 to-teal-700/70">
-      <div className="p-4 max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6 text-center text-white font-mono">
-          Top 10 Movies
-        </h1>
+    <div className="p-4 max-w-6xl mx-auto ">
+      <h1 className="text-4xl font-bold mb-6 text-center text-white font-mono">
+        Top 10 Movies
+      </h1>
+      <div className="flex items-center gap-2 mb-4">
+        <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
+        <button
+          onClick={handleSearch}
+          className="px-4 py-2 bg-black text-white rounded hover:bg-blue-600"
+        >
+          Search
+        </button>
+        <button
+          onClick={handleReset}
+          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+        >
+          Reset
+        </button>
+      </div>
 
-        <div className="flex items-center gap-2 mb-4">
-          <SearchBar
-            query={query}
-            setQuery={setQuery}
-            onSearch={handleSearch}
-          />
-          <button
-            onClick={handleSearch}
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
-            Search
-          </button>
-          <button
-            onClick={handleReset}
-            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-          >
-            Reset
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-10">
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </div>
   );
