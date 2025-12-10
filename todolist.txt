@@ -1,30 +1,52 @@
 Att göra:
 
-- Skapa en navbar
+- Skapa en navbar ✅
 
 
-- Skapa en footer
+- Skapa en footer ✅
 
 - implementera att hela vyn styrs av URL-params 
 (om det så krävs?)
 
 
 - Ändra på pilarna för när man skrollar skådespelare
-  under MovieDetails.tsx
+  under MovieDetails.tsx ✅
 
 - Ändra på pilarna för när man skrollar filmer
-  under ActorDetails.tsx
+  under ActorDetails.tsx ✅
 
 
-- Skapa en logga in sektion 
+- Skapa en logga in sektion  ✅
 (spara i local storage men ha i åtanke att du
 i framtiden behöver implementera en backend för detta)
 
 
-- Skapa en favoritfilmer-lista, liknande till to-dolist
+- Skapa en favoritfilmer-lista, liknande till to-dolist ✅
 (spara i local storage men ha i åtanke att du
 i framtiden behöver implementera en backend för detta)
 
 
+To-do after code review (2025-12/10) -FIXAT- ✅
 
+- Lägg till dist mappen i .gitignore ✅
+- Ta bort props till komponenter från types.ts filen, ha endast generella datatyper ✅
+- Knapparna för sökfunktionen ska vara i Searchbar.tsx ✅
+- Dela upp logiken mer i moviedetails och actordetails. Filmdetaljer och skådespelare
+  ska ha sina egna komponenter och logik. ✅
+- Fixa skrollfunktionen där filmtiteln är längre än bredden för filmkortet. ✅
+- Ha i useNavigate logiken i Backbutton.tsx filen. ✅
+
+
+
+
+
+
+
+
+⚠️filnamn naming conventions. en diskussion.⚠️
+
+
+
+
+- din scroll blir lite knas när titeln är längre än bredden på omslaget.
 

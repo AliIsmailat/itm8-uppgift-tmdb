@@ -15,15 +15,3 @@ export interface Actor {
   place_of_birth?: string;
   biography?: string;
 }
-
-export interface BackButtonProps {
-  onClick: () => void;
-  label?: string;
-}
-
-export interface SearchBarProps {
-  query: string;
-  setQuery: (q: string) => void;
-  onSearch: () => void;
-  onClear?: () => void;
-}

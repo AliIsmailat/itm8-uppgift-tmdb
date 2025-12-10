@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { fetchPopularMovies, searchMovies } from "../api/tmdb";
 import type { Movie } from "../types/types";
-import MovieCard from "../components/MovieCard";
-import SearchBar from "../components/SearchBar";
+import MovieCard from "../components/movie/MovieCard";
+import SearchBar from "../components/ui/SearchBar";
 
 //funktion för home sidan
 export default function Home() {
@@ -75,19 +75,12 @@ export default function Home() {
         Top 10 Movies
       </h1>
       <div className="flex items-center gap-2 mb-4">
-        <SearchBar query={query} setQuery={setQuery} onSearch={handleSearch} />
-        <button
-          onClick={handleSearch}
-          className="px-4 py-2 bg-black text-white rounded hover:bg-blue-600"
-        >
-          Search
-        </button>
-        <button
-          onClick={handleReset}
-          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-        >
-          Reset
-        </button>
+        <SearchBar
+          query={query}
+          setQuery={setQuery}
+          onSearch={handleSearch}
+          onReset={handleReset}
+        />
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-10">

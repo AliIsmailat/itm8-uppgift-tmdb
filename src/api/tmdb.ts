@@ -10,6 +10,7 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY as string;
 const BASE_URL = "https://api.themoviedb.org/3";
 
 
+
 //skapar funktionen fetchPopularMovies och exporterar den så att den kan
 //användas utanför filen.
 
