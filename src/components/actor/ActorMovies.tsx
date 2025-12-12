@@ -102,7 +102,7 @@ function ScrollButtons({
 
   return (
     <>
-      <div className="absolute inset-y-0 left-0 flex items-center -left-9">
+      <div className="absolute inset-y-0 flex items-center -left-9">
         <button
           onClick={() => scrollBy(-300)}
           className="bg-black/90 hover:bg-black/50 text-white p-3 rounded-full shadow-lg transition"
@@ -111,7 +111,7 @@ function ScrollButtons({
         </button>
       </div>
 
-      <div className="absolute inset-y-0 right-0 flex items-center -right-9">
+      <div className="absolute inset-y-0 flex items-center -right-9">
         <button
           onClick={() => scrollBy(300)}
           className="bg-black/90 hover:bg-black/50 text-white p-3 rounded-full shadow-lg transition"
