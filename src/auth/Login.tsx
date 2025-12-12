@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { findUser, setCurrentUser } from "../utils/auth";
+import { findUser } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     const user = findUser(username);
     if (user && user.password === password) {
-      setCurrentUser(user);
+      login(user);
       navigate("/");
     } else {
       setMessage("Invalid username or password");
@@ -21,7 +23,6 @@ export default function Login() {
 
   return (
     <div className="p-14 mt-20 max-w-md mx-auto bg-white/40 backdrop-blur-md rounded-2xl border border-black/10 shadow-lg">
-      {" "}
       <h1 className="text-2xl font-bold mb-4">Login</h1>
       <form onSubmit={handleLogin} className="flex flex-col gap-4">
         <input

@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { saveUser, findUser } from "../utils/auth";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
@@ -12,8 +16,10 @@ export default function Register() {
       setMessage("Username already exists");
       return;
     }
-    saveUser({ username, password });
-    setMessage("User registered successfully!");
+    const newUser = { username, password };
+    saveUser(newUser);
+    login(newUser);
+    navigate("/");
   };
 
   return (

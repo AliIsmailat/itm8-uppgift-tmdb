@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import BackButton from "../components/ui/BackButton";
 import MovieInfo from "../components/movie/MovieInfo";
 import MovieCast from "../components/movie/MovieCast";
+import MovieComments from "../components/movie/comments/MovieComments";
 
 export default function MovieDetails() {
   const { id } = useParams();
@@ -15,9 +16,9 @@ export default function MovieDetails() {
 
       <MovieInfo movieId={movieId} />
 
-      <h2 className="text-2xl font-semibold mb-3">Cast</h2>
-
       <MovieCast movieId={movieId} />
+
+      <MovieComments movieId={movieId} />
     </div>
   );
 }

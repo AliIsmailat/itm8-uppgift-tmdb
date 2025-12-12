@@ -13,6 +13,8 @@ export default function MovieCast({ movieId }: { movieId: number }) {
 
   return (
     <div className="relative">
+      <h2 className="text-2xl font-semibold mb-3">Cast</h2>
+
       <div
         id="cast-scroll"
         className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth py-2"
@@ -58,7 +60,7 @@ export default function MovieCast({ movieId }: { movieId: number }) {
 function ScrollButtons({ targetId }: { targetId: string }) {
   return (
     <>
-      <div className="absolute inset-y-0 left-0 flex items-center -left-9">
+      <div className="absolute inset-y-0 flex items-center -left-9">
         <button
           onClick={() =>
             document
@@ -70,7 +72,7 @@ function ScrollButtons({ targetId }: { targetId: string }) {
           <ChevronLeftIcon className="w-6 h-6" />
         </button>
       </div>
-      <div className="absolute inset-y-0 right-0 flex items-center -right-9">
+      <div className="absolute inset-y-0  flex items-center -right-9">
         <button
           onClick={() =>
             document

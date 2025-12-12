@@ -1,7 +1,6 @@
-// src/utils/auth.ts
 export interface User {
   username: string;
-  password: string;
+  password?: string;
 }
 
 export function saveUser(user: User) {

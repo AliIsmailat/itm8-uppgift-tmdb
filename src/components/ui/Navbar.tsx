@@ -1,18 +1,9 @@
-import { useState, useEffect } from "react";
+// Navbar.tsx
 import { Link } from "react-router-dom";
-import { getCurrentUser, logout } from "../../utils/auth";
+import { useAuth } from "../../auth/AuthContext";
 
 export default function Navbar() {
-  const [user, setUser] = useState<{ username: string } | null>(null);
-
-  useEffect(() => {
-    setUser(getCurrentUser());
-  }, []);
-
-  const handleLogout = () => {
-    logout();
-    setUser(null);
-  };
+  const { user, logout } = useAuth();
 
   return (
     <nav className="bg-black backdrop-blur-md text-white px-6 py-7 shadow-2xl mb-5">
@@ -47,7 +38,7 @@ export default function Navbar() {
             <>
               <span className="text-lime-300">Hello, {user.username}</span>
               <button
-                onClick={handleLogout}
+                onClick={logout}
                 className="hover:text-red-500 transition"
               >
                 Logout
