@@ -1,3 +1,13 @@
+// importerar typer, hooks och funktioner.
+
+// behöver använda useref då jag läser dom-egenskaper
+// alltså scrollwidth och clientwidth för att veta om:
+// movie listan är bredare än containern samt skrolla
+// i själva listan.
+
+// skapar ist scrollref, som gör att scrollref.current kan
+//ändras utan rerenders
+
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { fetchActorMovies } from "../../api/tmdb";
@@ -5,17 +15,25 @@ import type { Movie } from "../../types/types";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 export default function ActorMovies({ actorId }: { actorId: number }) {
+  // ref gör att state kan ändras utan rerenders
   const [movies, setMovies] = useState<Movie[]>([]);
   const [canScroll, setCanScroll] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // useeffect api funktion för att hämta filmer med
+  // actorid som dependency
   useEffect(() => {
     fetchActorMovies(actorId).then((data) => {
+      // använder map för att undvika dubletter,
+      // genom att använda movie.id som nyckel
       const unique = Array.from(new Map(data.map((m) => [m.id, m])).values());
       setMovies(unique);
     });
   }, [actorId]);
 
+  // annan useeffect som checkar om vi kan scrolla.
+  // scroll width är total bredd,
+  // client width är synlig bredd.
   useEffect(() => {
     const updateCanScroll = () => {
       if (scrollRef.current) {
@@ -26,10 +44,12 @@ export default function ActorMovies({ actorId }: { actorId: number }) {
     };
 
     updateCanScroll();
+    // uppdaterar canscroll beroende på storleksändring
     window.addEventListener("resize", updateCanScroll);
     return () => window.removeEventListener("resize", updateCanScroll);
   }, [movies]);
 
+  // fallback om inga filmer hittas.
   if (movies.length === 0) return <p>No movies found.</p>;
 
   return (
@@ -42,6 +62,8 @@ export default function ActorMovies({ actorId }: { actorId: number }) {
         className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth py-2"
       >
         {movies.map((movie) => (
+          // använder link istället för <a></a> för att
+          // undvika reload av sidan
           <Link
             key={movie.id}
             to={`/movie/${movie.id}`}

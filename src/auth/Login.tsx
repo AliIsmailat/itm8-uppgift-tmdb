@@ -1,21 +1,35 @@
 import { useState } from "react";
 import { findUser } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "./useAuth";
 
+// funktion för att logga in.
 export default function Login() {
+  // skapar tre states som börjar som tomma strängar
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  // usenavigate för att byta sida när man har loggat in
   const navigate = useNavigate();
+  // hämtar login funktionen från contexten (datan) genom
+  // useauth, när användaren loggar in nu uppdateras
+  // staten av contexten.
   const { login } = useAuth();
 
+  // funktion för när man loggar in
   const handleLogin = (e: React.FormEvent) => {
+    // gör att sidan inte laddas om.
     e.preventDefault();
+    // kollar om det finns en användare med användarnamnet
+    // som har skrivits in.
     const user = findUser(username);
+    // om påståenden stämmer, uppdaterar login kontexten
+    // med värdet av user och skickar användaren till
+    // startsidan
     if (user && user.password === password) {
       login(user);
       navigate("/");
+      // annars, visar felmeddelande.
     } else {
       setMessage("Invalid username or password");
     }

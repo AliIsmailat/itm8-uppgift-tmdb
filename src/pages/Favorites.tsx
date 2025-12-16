@@ -6,23 +6,19 @@ import { fetchMovieDetails } from "../api/tmdb";
 import { getCurrentUser } from "../utils/auth";
 
 export default function Favorites() {
+  const favoriteIds = getFavorites();
   const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(favoriteIds.length > 0);
 
   useEffect(() => {
-    const favoriteIds = getFavorites();
-
-    if (favoriteIds.length === 0) {
-      setFavoriteMovies([]);
-      setLoading(false);
-      return;
-    }
+    if (favoriteIds.length === 0) return;
 
     Promise.all(favoriteIds.map((id) => fetchMovieDetails(id)))
-      .then((movies) => setFavoriteMovies(movies))
+      .then(setFavoriteMovies)
       .catch((err) => console.error("Failed to load favorites:", err))
       .finally(() => setLoading(false));
-  }, []);
+  }, [favoriteIds]);
+
   const user = getCurrentUser();
 
   const title = user

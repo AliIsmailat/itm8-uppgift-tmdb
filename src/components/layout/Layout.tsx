@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-r from-lime-400/70 to-teal-700/70">
+    <div className="min-h-screen flex flex-col bg-gradient-to-r from-lime-400/90 to-teal-700/90">
       <Navbar />
       <main className="flex-1">
         <Outlet />

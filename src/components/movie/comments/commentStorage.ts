@@ -6,12 +6,19 @@ export function loadComments(movieId: number): Comment[] {
   if (!saved) return [];
 
   try {
-    const parsed = JSON.parse(saved);
-    return parsed.map((c: any) => ({
-      ...c,
-      likedBy: c.likedBy || [],
-      dislikedBy: c.dislikedBy || [],
-    }));
+    const parsed: unknown = JSON.parse(saved);
+
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed.map((c): Comment => {
+      const comment = c as Partial<Comment>;
+
+      return {
+        ...comment,
+        likedBy: comment.likedBy ?? [],
+        dislikedBy: comment.dislikedBy ?? [],
+      } as Comment;
+    });
   } catch {
     return [];
   }

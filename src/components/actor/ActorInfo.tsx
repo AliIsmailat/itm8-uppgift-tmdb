@@ -1,12 +1,16 @@
+// importerar typer, hooks och funktioner.
 import { useEffect, useState } from "react";
 import { fetchActorDetails } from "../../api/tmdb";
 import type { Actor } from "../../types/types";
 
+// actorinfo tar emot actor id som ett nummer
 export default function ActorInfo({ actorId }: { actorId: number }) {
+  // states för actor, loading och expanded (info fältet)
   const [actor, setActor] = useState<Actor | null>(null);
   const [loading, setLoading] = useState(true);
   const [expanded, setExpanded] = useState(false);
 
+  // api anrop med actorid som dependency.
   useEffect(() => {
     fetchActorDetails(actorId).then((data) => {
       setActor(data);
@@ -14,12 +18,15 @@ export default function ActorInfo({ actorId }: { actorId: number }) {
     });
   }, [actorId]);
 
+  // fallback och loading funktionalitet
   if (loading) return <p>Loading actor...</p>;
   if (!actor) return <p>Actor not found.</p>;
 
-  // Safe handling for undefined biography
+  // om actor.biography inte finns, använd en tom sträng
   const bio = actor.biography ?? "";
+  // checkar om bio har text
   const hasBio = bio.trim().length > 0;
+  // checkar om bio inte är tom och är längre än 300 tecken
   const isLongBio = hasBio && bio.length > 300;
 
   return (
