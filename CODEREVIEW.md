@@ -34,6 +34,8 @@ React 19.2 har introducerat useEffectEvent() som kan användas här för att avh
 - Lägg in hantering av språk
 - Lägg till hantering av "dark mode", dvs så man kan byta mellan ljust/mörkt tema.
 - Lägg in en meny i din header som en s.k. drawer (framförallt i mobilt läge)
+- Lägg till filter på sökning. T.ex. filtrera på genre.
+- Lägg till funktion för att byta vy (rutnät/lista) på sökresultat.
 
 - Kika på React Routers Data Mode hantering https://reactrouter.com/start/data/installation och framförallt hur du kan applicera Data Loading via loader.
   Ett smidigt sätt att läsa in data till din route utan att behöva göra det i din view komponent.
