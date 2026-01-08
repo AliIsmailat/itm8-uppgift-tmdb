@@ -17,7 +17,7 @@ const CommentForm: FC<CommentFormProps> = ({ text, setText, onPost }) => {
       />
       <button
         onClick={onPost}
-        className="mt-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
+        className="mt-2 px-4 py-2 bg-green-700 hover:bg-green-600 text-white rounded"
       >
         Post Comment
       </button>

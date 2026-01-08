@@ -37,7 +37,7 @@ const CommentItem: FC<CommentItemProps> = ({
   return (
     <div className="p-4 bg-white/70 rounded shadow">
       <div className="flex justify-between">
-        <p className="font-semibold">{comment.user}</p>
+        <p className="font-semibold dark:text-black">{comment.user}</p>
         <p className="text-xs text-gray-500">
           {new Date(comment.timestamp).toLocaleString()}
         </p>
@@ -64,7 +64,7 @@ const CommentItem: FC<CommentItemProps> = ({
           </button>
         </div>
       ) : (
-        <p className="mt-1">{comment.text}</p>
+        <p className="mt-5 dark:text-black">{comment.text}</p>
       )}
 
       <div className="flex gap-4 mt-3 text-sm">

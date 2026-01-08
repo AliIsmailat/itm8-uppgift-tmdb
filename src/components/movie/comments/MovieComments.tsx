@@ -134,7 +134,7 @@ export default function MovieComments({ movieId }: { movieId: number }) {
 
       <div className="space-y-4">
         {visibleComments.length === 0 ? (
-          <p className="text-gray-500">No comments yet.</p>
+          <p className="text-gray-500 dark:text-gray-300">No comments yet.</p>
         ) : (
           visibleComments.map((c) => (
             <CommentItem

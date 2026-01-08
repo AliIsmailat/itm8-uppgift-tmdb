@@ -36,7 +36,7 @@ export default function SearchBar({
 
       <button
         onClick={onReset}
-        className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+        className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 dark:text-black"
       >
         Reset
       </button>

@@ -18,7 +18,7 @@ export default function MovieCard({ movie }: Props) {
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
-          className="w-full h-64 object-cover"
+          className="w-full h-68 object-cover"
         />
       ) : (
         <div className="w-full h-64 bg-gray-300 flex items-center justify-center rounded overflow-hidden">
@@ -43,11 +43,13 @@ L8.904,87.944z"
       )}
 
       <div className="p-2">
-        <h2 className="text-lg font-semibold">{movie.title}</h2>
+        <h2 className="text-lg font-semibold dark:text-gray-900">
+          {movie.title}
+        </h2>
         <p className="text-sm text-gray-500">{movie.release_date}</p>
       </div>
 
-      <div className="absolute bottom-2 right-2">
+      <div className="absolute bottom-0  right-0">
         <FavoriteButton movieId={movie.id} />
       </div>
     </div>

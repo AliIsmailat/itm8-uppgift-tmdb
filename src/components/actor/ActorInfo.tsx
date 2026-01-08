@@ -55,12 +55,12 @@ export default function ActorInfo({ actorId }: { actorId: number }) {
           <h1 className="text-3xl font-bold mb-2">{actor.name}</h1>
 
           {actor.birthday && (
-            <p className="text-gray-700 mb-2">
+            <p className="text-gray-700 mb-2 dark:text-gray-300">
               Year of birth: {actor.birthday}
             </p>
           )}
           {actor.place_of_birth && (
-            <p className="text-gray-700 mb-4">
+            <p className="text-gray-700 mb-4 dark:text-gray-300">
               Place of birth: {actor.place_of_birth}
             </p>
           )}
@@ -70,7 +70,7 @@ export default function ActorInfo({ actorId }: { actorId: number }) {
               !expanded ? "max-h-[12.7rem]" : "max-h-[2000px]"
             }`}
           >
-            <p className="leading-relaxed mb-4">
+            <p className="leading-relaxed mb-4 dark:text-black">
               {hasBio ? bio : "No biography available."}
             </p>
 

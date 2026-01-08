@@ -51,12 +51,12 @@ L8.904,87.944z"
           <h1 className="text-3xl font-bold mb-2">{movie.title}</h1>
 
           {movie.release_date && (
-            <p className="text-gray-700 mb-2">
+            <p className="text-gray-700 mb-2 dark:text-gray-300">
               Release date: {movie.release_date}
             </p>
           )}
 
-          <p className="bg-white/80 p-4 rounded-tr-lg rounded-bl-lg leading-relaxed">
+          <p className="bg-white/80 p-4 rounded-tr-lg rounded-bl-lg leading-relaxed dark:text-black">
             {movie.overview || "No overview available."}
           </p>
         </div>
