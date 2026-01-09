@@ -29,6 +29,13 @@ React 19.2 har introducerat useEffectEvent() som kan användas här för att avh
 ## commentStorage.tsx
 - ser en c: any deklaration. försök undvik att ange any som typ. det orsakar oftast problem i förlängningen.
 
+## Navbar.tsx
+- i funktion handleLanguageChange bör du använda din Language typ när du gör din type assertion
+- darkMode styrs härifrån vilket är korrekt. men logiken kring att styra det borde ligga i en egen hook så blir den mer generisk och du separerar koden på ett mer logiskt sätt.
+
+## useTranslation.ts
+- behövs denna? ser att den inte används än, men vet inte hur du tänkt.
+
 
 ## TODO:
 - Lägg in hantering av språk
@@ -36,6 +43,7 @@ React 19.2 har introducerat useEffectEvent() som kan användas här för att avh
 - Lägg in en meny i din header som en s.k. drawer (framförallt i mobilt läge)
 - Lägg till filter på sökning. T.ex. filtrera på genre.
 - Lägg till funktion för att byta vy (rutnät/lista) på sökresultat.
+- Lägg gärna in en utility funktion (förslagsvis en hook) som hanterar läsa/skriva till local storage
 
 - Kika på React Routers Data Mode hantering https://reactrouter.com/start/data/installation och framförallt hur du kan applicera Data Loading via loader.
   Ett smidigt sätt att läsa in data till din route utan att behöva göra det i din view komponent.
